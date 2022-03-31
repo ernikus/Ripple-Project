@@ -1,5 +1,4 @@
 const express = require('express');
-const res = require('express/lib/response');
 const mongoose = require('mongoose');
 const Desk = require('./models/desk');
 const get_url = require('./utils');
