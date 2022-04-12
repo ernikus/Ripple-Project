@@ -1,0 +1,1 @@
+### Wpisz w teminalu `docker-compose up`
