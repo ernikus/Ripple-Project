@@ -17,6 +17,8 @@ services:
       - 50000:50000
     depends_on:
       - mongodb_container
+    volumes:
+      - ../Backend/hello-world:/usr/src/hotseat-backend
 
 
 volumes:
