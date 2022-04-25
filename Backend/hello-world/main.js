@@ -70,6 +70,7 @@ app.post('/add-employee', (request, response) => {
         });
 });
 
+//Editing an employee - add id of employee to end of url e.g. localhost:50000/edit-employee/abcdefg123456 and in request body add elements you want to change
 app.patch('/edit-employee/:id', (request, response) => {
     const _id = request.params.id;
     const updateEmployee = Employee.findByIdAndUpdate(_id, request.body, {
