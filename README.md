@@ -1,5 +1,10 @@
 # Ripple-Project
 
+## Files Folder
+
+Pliki w folderze files -> na serwer
+
+
 ## Jak wgrać pliki do repozytorium
 
  1. Skopiuj Projekt do siebie (**fork**; prawy górny róg)
