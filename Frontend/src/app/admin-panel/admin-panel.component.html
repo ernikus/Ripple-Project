@@ -1,0 +1,15 @@
+<h1>ADMIN</h1>
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+      <span>
+      </span>
+      <span>
+        <button mat-raised-button routerLink="add-user">ADD USER</button>
+        <button mat-raised-button routerLink="edit-user">EDIT USER</button>
+        <button mat-raised-button routerLink="add-user">EDIT OFFICE</button>
+      </span>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <router-outlet></router-outlet>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,49 @@
+{
+  "userList": [
+    {
+      "name": "wiktor",
+      "departament": "SOC",
+      "position": "Senior Level",
+      "phone": "722345371",
+      "email": "wiktor@gmail.com",
+      "password": "haslomaslo",
+      "id": 1
+    },
+    {
+      "name": "test1",
+      "departament": "SOC",
+      "position": "Senior Level",
+      "phone": "123123123",
+      "email": "123@gmail.com",
+      "password": "123987",
+      "id": 2
+    },
+    {
+      "name": "test no email",
+      "departament": "HR",
+      "position": "Mid Level",
+      "phone": "12312312",
+      "email": "123",
+      "password": "33333",
+      "id": 3
+    },
+    {
+      "name": "123567678",
+      "departament": "HR",
+      "position": "Junior Level",
+      "phone": "1233121231312",
+      "email": "123123123123123",
+      "password": "123123123123123",
+      "id": 4
+    },
+    {
+      "name": "biktor",
+      "departament": "Other",
+      "position": "Junior Level",
+      "phone": "qweqweqwe",
+      "email": "uwuowo",
+      "password": "owouwu",
+      "id": 5
+    }
+  ]
+}
