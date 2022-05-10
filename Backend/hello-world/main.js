@@ -111,6 +111,7 @@ app.get('/user-reservation/:id', (request, response) => {
 app.post('/add-reservation', (request, response) => {
     const newReservation = new Reservation({
         employeeID: request.body.employeeID,
+        deskID: request.body.deskID,
         reservationStart: request.body.reservationStart,
         reservationEnd: request.body.reservationEnd
     });
