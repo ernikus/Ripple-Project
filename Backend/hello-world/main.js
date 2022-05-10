@@ -3,7 +3,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Desk = require('./models/desk');
 const Employee = require('./models/employee');
+const Reservation = require('./models/reservation')
 const get_url = require('./utils');
+const { db } = require('./models/desk');
 
 username = "zespol";
 password = "projektzespolowy";
@@ -52,16 +54,16 @@ app.get('/employees', (request, response) => {
 
 //Adding an employee
 app.post('/add-employee', (request, response) => {
-    const dodawanyPracownik = new Employee({
+    const newEmployee = new Employee({
         name: request.body.name,
         surname: request.body.surname,
         login: request.body.login,
-        //TODO: Ogarnąć hashowanie i te zabezpieczenia
+        //TODO: Hashing and security in general
         passwordHash: request.body.passwordHash,
         depID: request.body.depID
     });
 
-    dodawanyPracownik.save()
+    newEmployee.save()
         .then((result) => {
             response.send(result);
         })
@@ -72,8 +74,8 @@ app.post('/add-employee', (request, response) => {
 
 //Editing an employee - add id of employee to end of url e.g. localhost:50000/edit-employee/abcdefg123456 and in request body add elements you want to change
 app.patch('/edit-employee/:id', (request, response) => {
-    const _id = request.params.id;
-    const updateEmployee = Employee.findByIdAndUpdate(_id, request.body, {
+    const _editemployeeid = request.params.id;
+    const updateEmployee = Employee.findByIdAndUpdate(_editemployeeid, request.body, {
         new: true
     })
     .then((result) => {
@@ -82,6 +84,43 @@ app.patch('/edit-employee/:id', (request, response) => {
     .catch((err) => {
         console.log(err);
     });
+});
+
+app.get('/reservations', (request, response) => {
+    Reservation.find(request.query)
+        .setOptions({ sanitizeFilter: true })
+        .then((result) => {
+            response.send(result);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+});
+
+app.get('/user-reservation/:id', (request, response) => {
+    const _userreservationid = request.params.id
+    Reservation.find({employeeID: _userreservationid})
+        .then((result) => {
+            response.send(result);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+});
+
+app.post('/add-reservation', (request, response) => {
+    const newReservation = new Reservation({
+        employeeID: request.body.employeeID,
+        reservationStart: request.body.reservationStart,
+        reservationEnd: request.body.reservationEnd
+    });
+    newReservation.save()
+        .then((result) => {
+            response.send(result);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 });
 
 app.get('/add-desk', (request, response) => {
@@ -99,6 +138,8 @@ app.get('/add-desk', (request, response) => {
             console.log(err);
         });
 });
+
+db.find
 
 app.use((request, response) => {
     response.status(404).send("This page does not exist!");
