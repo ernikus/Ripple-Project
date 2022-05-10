@@ -22,7 +22,7 @@ export class AddUserComponent implements OnInit{
       departament : ['', Validators.required],
       position : ['', Validators.required],
       phone : ['', Validators.required],
-      email : ['', Validators.required],
+      email : ['', Validators.compose([Validators.required, Validators.email]) ],
       password : ['', Validators.required]
     })
   }

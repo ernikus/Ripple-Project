@@ -1,0 +1,25 @@
+.column {
+  float: left;
+  width: 50%;
+
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.btn1 {
+  width: 90%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: large;
+  font-stretch: ultra-expanded;
+  margin-top: 10rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  text-align: center;
+  display: inline-block;
+}

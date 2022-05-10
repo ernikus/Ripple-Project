@@ -5,10 +5,11 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="" >OFFICE VIEW</a>
-      <a mat-list-item routerLink="">TABLE VIEW</a>
-      <a mat-list-item routerLink="">MY RESERVATION</a>
-      <a mat-list-item routerLink="admin-panel">ADMIN PANEL</a>
+      <a mat-list-item  routerLink="" >OFFICE VIEW</a>
+      <a mat-list-item  routerLink="table-view" >TABLE VIEW</a>
+      <a mat-list-item  routerLink="" >MY RESERVATION</a>
+      <a mat-list-item  routerLink="admin-panel">ADMIN PANEL</a>
+      <!-- (click)=drawer.toggle() -->
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
