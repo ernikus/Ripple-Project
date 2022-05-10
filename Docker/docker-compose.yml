@@ -19,7 +19,14 @@ services:
       - mongodb_container
     volumes:
       - ../Backend/hello-world:/usr/src/hotseat-backend
-
+  keycloak:
+    image: quay.io/keycloak/keycloak:18.0.0
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    ports:
+      - 8080:8080
+    command: ["start-dev"]
 
 volumes:
   mongodb_data_container:
