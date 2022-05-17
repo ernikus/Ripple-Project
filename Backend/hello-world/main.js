@@ -31,15 +31,6 @@ app.get('/', (request, response) => {
     response.send('Hello!');
 });
 
-app.get('/desks', (request, response) => {
-    Desk.find()
-        .then((result) => {
-            response.send(result);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-});
 
 app.get('/employees', (request, response) => {
     Employee.find(request.query)
@@ -124,7 +115,17 @@ app.post('/add-reservation', (request, response) => {
         });
 });
 
-app.get('/add-desk', (request, response) => {
+app.get('/desks', (request, response) => {
+    Desk.find()
+        .then((result) => {
+            response.send(result);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+});
+
+app.post('/add-desk', (request, response) => {
     const newDesk = new Desk({
         floor: request.body.floor,
         number: request.body.number
