@@ -125,12 +125,12 @@ app.post('/add-reservation', (request, response) => {
 });
 
 app.get('/add-desk', (request, response) => {
-    const desk1 = new Desk({
-        floor: Math.floor(Math.random() * 5) + 1,
-        number: Math.floor(Math.random() * 100) + 1
+    const newDesk = new Desk({
+        floor: request.body.floor,
+        number: request.body.number
     });
 
-    desk1.save()
+    newDesk.save()
         .then((result) => {
             response.send(result);
 
