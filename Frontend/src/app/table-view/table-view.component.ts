@@ -1,6 +1,6 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import {DateAdapter} from '@angular/material/core';
+import {DateAdapter, MAT_DATE_LOCALE} from '@angular/material/core';
 import {
   MatDateRangeSelectionStrategy,
   DateRange,
@@ -68,13 +68,23 @@ export class FiveDayRangeSelectionStrategy<D> implements MatDateRangeSelectionSt
   providers: [{
       provide: MAT_DATE_RANGE_SELECTION_STRATEGY,
       useClass: FiveDayRangeSelectionStrategy,
-    },],
+      },
+      { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+
+    ],
 })
 
 export class TableViewComponent{
 
   constructor() { }
 
+  range = new FormGroup({
+    start: new FormControl(),
+    middle1: new FormControl(),
+    middle: new FormControl(),
+    middle2: new FormControl(),
+    end: new FormControl(),
+  })
 
   displayedColumns: string[] = ['name', 'weight', 'symbol', 'position'];
   columnsToDisplay: string[] = this.displayedColumns.slice();
@@ -83,6 +93,3 @@ export class TableViewComponent{
 
 
 }
-
-
-

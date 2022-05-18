@@ -3,7 +3,7 @@
 <div class="datepick">
   <mat-form-field appearance="outline">
     <mat-label>Enter a date range</mat-label>
-    <mat-date-range-input [rangePicker]="picker">
+    <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
       <input matStartDate placeholder="Start date">
       <input matEndDate placeholder="End date">
     </mat-date-range-input>
@@ -12,6 +12,7 @@
     <mat-date-range-picker #picker></mat-date-range-picker>
   </mat-form-field>
 </div>
+<p>Selected range: {{range.value | json}}</p>
 
 <table mat-table [dataSource]="data" class="mat-elevation-z8">
   <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">

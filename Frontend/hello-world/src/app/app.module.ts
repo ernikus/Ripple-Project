@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -32,6 +33,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatOptionModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MyResComponent } from './my-res/my-res.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +45,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     AdminPanelComponent,
     EditUserDialogComponent,
     TableViewComponent,
+    MyResComponent,
 
   ],
   imports: [

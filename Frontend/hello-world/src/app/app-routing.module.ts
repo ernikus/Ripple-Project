@@ -5,6 +5,7 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { MyResComponent } from './my-res/my-res.component';
 import { TableViewComponent } from './table-view/table-view.component';
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:'home', component: HomePageComponent,
   children:[
     {path:'table-view', component: TableViewComponent},
+    {path:'my-res', component: MyResComponent},
     {path:'admin-panel', component: AdminPanelComponent,
       children:[
           {path:'add-user', component: AddUserComponent},
