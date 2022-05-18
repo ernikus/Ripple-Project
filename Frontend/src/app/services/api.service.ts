@@ -12,12 +12,12 @@ export class ApiService {
     return this.http.post<any>("http://localhost:3000/userList/", data);
   }
   getUser(){
-    return this.http.get<any>("http://localhost:3000/userList")
+    return this.http.get<any>("http://localhost:3000/userList/")
   }
   putUser(data : any, id : number){
-    return this.http.put<any>("http://localhost:3000/userList"+id, data)
+    return this.http.put<any>("http://localhost:3000/userList/"+id, data)
   }
   delUser(id : number){
-    return this.http.delete<any>("http://localhost:3000/userList"+id)
+    return this.http.delete<any>("http://localhost:3000/userList/"+id)
   }
 }

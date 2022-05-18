@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -27,7 +28,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditUserDialogComponent } from './edit-user-dialog/edit-user-dialog.component';
-
+import { TableViewComponent } from './table-view/table-view.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatOptionModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MyResComponent } from './my-res/my-res.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +44,8 @@ import { EditUserDialogComponent } from './edit-user-dialog/edit-user-dialog.com
     EditUserComponent,
     AdminPanelComponent,
     EditUserDialogComponent,
+    TableViewComponent,
+    MyResComponent,
 
   ],
   imports: [
@@ -60,7 +68,11 @@ import { EditUserDialogComponent } from './edit-user-dialog/edit-user-dialog.com
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatDialogModule
+    MatDialogModule,
+    MatRadioModule,
+    MatOptionModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
