@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  mongodb_container:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: zespol
+      MONGO_INITDB_ROOT_PASSWORD: projektzespolowy
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+  hotseat-backend:
+    image: hotseat-backend
+    build: ../Backend/hello-world
+    ports:
+      - 50000:50000
+    depends_on:
+      - mongodb_container
+    volumes:
+      - ../Backend/hello-world:/usr/src/hotseat-backend
+  keycloak:
+    image: quay.io/keycloak/keycloak:18.0.0
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    ports:
+      - 8080:8080
+    command: ["start-dev"]
+
+volumes:
+  mongodb_data_container:
