@@ -1,0 +1,117 @@
+@import url(//fonts.googleapis.com/earlyaccess/nats.css);
+
+
+/* Login Screen - Desktop */
+*{
+margin: 0px;
+padding: 0px;
+box-sizing: border-box;
+}
+html, body {
+position: fixed;
+display: flex;
+gap: 10px;
+flex-direction: column;
+top: 0px;
+left: 0px;
+bottom: 0px;
+right: 0px;
+height: 100%;
+Margin: 0;
+
+background: #000000;
+}
+.container{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    Margin: 0;
+    align-items: center;
+    justify-content: flex-start;
+    
+    }
+
+.container div{
+    margin: 10px;
+  }
+/* Log In */
+.button[type=button]{
+display: flex;
+width: 280px;
+height: 80px;
+font-family: 'NATS';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 20px;
+margin: 4px 2px;
+cursor: pointer;
+border: 2px solid #FFFFFF;
+border-radius: 50px;
+
+background-color: white;
+color: #000000;
+border:none;
+}
+
+/* Password */
+.Pass input[type=password]{
+display: flex;
+width: 280px;
+height: 80px;
+
+font-family: 'NATS';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 40px;
+/* or 165% */
+display: flex;
+align-items: center;
+text-align: center;
+color: white;
+background-color: black;
+border: 2px solid #FFFFFF;
+border-radius: 50px;
+}
+
+/* Forgot Password? */
+.forgot{
+
+font-family: 'NATS';
+font-style: normal;
+font-weight: 400;
+font-size: 22px;
+line-height: 32px;
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+}
+
+/* Login */
+.Login input[type=text]{
+width: 280px;
+height: 80px;
+
+font-family: 'NATS';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 40px;
+display: flex;
+align-items: center;
+text-align: center;
+color: white;
+background-color: black;
+border: 2px solid #FFFFFF;
+border-radius: 50px;
+}

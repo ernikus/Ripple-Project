@@ -1,2 +1,21 @@
-<h1 mat-subheader>Hot Seats App</h1>
-<button mat-flat-button color="accent" routerLink="/home">Login</button>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+<div class="container">
+    <img src="assets/Logo.png" width="400px" height="400px">
+    <div class="Login">
+        <input class="Login" type="text" placeholder="Login" name="user">
+      </div>
+  <div class="Pass">
+    <input class="Pass" type="password" placeholder="Password" name="password">
+  </div> 
+  <div>  <a class="forgot" routerLink="/signUp">Forgot Password?</a></div>
+  <div class="button">
+    <input type="button" class="button" routerLink="/home" value="Login">
+  </div>
+</div>
+</html>
