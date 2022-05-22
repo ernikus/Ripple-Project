@@ -6,8 +6,8 @@ Prosta implementacja, która wykonuje połączenie z bazą danych i udostępnia 
 
 ## Uruchomienie
 - Przejdź do katalogu Docker
-- `docker-compose up`
-- W nowym terminalu przejdź do katalogu Backend/hello-world
-- npm install
-- node main
+- `docker-compose up - d`
 - Uruchom przeglądarkę internetową pod adresem: http://localhost:50000
+
+## Development
+Aktualnie obraz backendu jest tak ustawiony, żeby można było w prosty sposób obserwować wprowadzane zmiany w kodzie. Aktualnie wystarczy odświeżyć przeglądarkę i już można zobaczyć wprowadzone zmiany.

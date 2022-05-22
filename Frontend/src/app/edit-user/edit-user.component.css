@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 95%;
+  margin-top: 8rem;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.mat-elevation-z8{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.scale-container{
+  margin-top: 10rem;
+}

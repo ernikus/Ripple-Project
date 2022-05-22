@@ -1,0 +1,68 @@
+{
+  "userList": [
+    {
+      "name": "biedny student",
+      "departament": "Other",
+      "position": "Mid Level",
+      "phone": "9999999999",
+      "email": "student@idk.idk",
+      "password": "student",
+      "id": 1
+    },
+    {
+      "name": "student",
+      "departament": "HR",
+      "position": "Mid Level",
+      "phone": "420420420",
+      "email": "testemail@email.com",
+      "password": "student",
+      "id": 2
+    },
+    {
+      "name": "biedny student 2",
+      "departament": "SOC",
+      "position": "Senior Level",
+      "phone": "77777777777",
+      "email": "777@777.777",
+      "password": "777",
+      "id": 3
+    },
+    {
+      "name": "inny student",
+      "departament": "SOC",
+      "position": "Senior Level",
+      "phone": "123123123",
+      "email": "jakis@student",
+      "password": "123",
+      "id": 4
+    },
+    {
+      "name": "stoodent",
+      "departament": "SOC",
+      "position": "test",
+      "phone": "123456789",
+      "email": "stoo@de.nt",
+      "password": "studemt",
+      "id": 5
+    },
+    {
+      "name": "stumdemt",
+      "departament": "Other",
+      "position": "Junior Level",
+      "phone": "1",
+      "email": "end@me",
+      "password": "yyyy",
+      "id": 6
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
