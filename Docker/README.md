@@ -1,5 +1,5 @@
 # Docker
-Backend aplikacji jest gotowy do uruchomienia w formie kontenerów dockera, które można odpalić pojedyńczą komendą:
+Cała infrastruktura aplikacji jest przenoszona do docker-compose, tak aby można było uruchomić wszystkie komponenty aplikacji pojedyńczą komendą:
 - `docker-compose up -d`
 
 ## Uwagi
