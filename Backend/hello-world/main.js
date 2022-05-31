@@ -141,7 +141,48 @@ app.post('/add-desk', (request, response) => {
         });
 });
 
-db.find
+app.get('/report-day-floor', (request, response) => {
+    const searchedFloor = request.body.searchedFloor
+    const searchedDay = request.body.searchedDay
+    var foundDeskIDs = []
+    Reservation.find( { $and: [ { reservationStart: { $lt: searchedDay } }, { reservationEnd: { $gt: searchedDay } } ]  }, { deskID: 1, _id: 0 } )
+        .then((result) => {
+            for (var i = 0; i < result.length; i++) {
+                foundDeskIDs.push(result[i].deskID)
+            }
+            Desk.find( { $and: [ { _id: { $in: foundDeskIDs } }, { floor: searchedFloor } ] } )
+            .then((result2) => {
+                response.send(result2);
+            })
+            .catch((err2) => {
+                console.log(err2);
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+        });      
+});
+
+app.get('/report-day', (request, response) => {
+    const searchedDay = request.body.searchedDay
+    var foundDeskIDs = []
+    Reservation.find( { $and: [ { reservationStart: { $lt: searchedDay } }, { reservationEnd: { $gt: searchedDay } } ]  }, { deskID: 1, _id: 0 } )
+        .then((result) => {
+            for (var i = 0; i < result.length; i++) {
+                foundDeskIDs.push(result[i].deskID)
+            }
+            Desk.find( { _id: { $in: foundDeskIDs } } )
+            .then((result2) => {
+                response.send(result2);
+            })
+            .catch((err2) => {
+                console.log(err2);
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+        });      
+});
 
 app.use((request, response) => {
     response.status(404).send("This page does not exist!");
