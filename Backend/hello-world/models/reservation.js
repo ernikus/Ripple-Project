@@ -12,12 +12,12 @@ const reservationSchema = new Schema({
         type: ObjectId,
         required: true
     },
-    //Consider implementing check to see validity of input before
+    //Should be the start of the first day e.g "reservationStart": "2022-05-10T00:00:00.000Z"
     reservationStart: {
         required: true,
         type: Date
     },
-    //Same as reservationStart
+    //Should be the end of the last day e.g. "reservationEnd": "2022-05-12T23:59:59.000Z"
     reservationEnd: {
         required: true,
         type: Date

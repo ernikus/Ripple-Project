@@ -1,0 +1,84 @@
+//id and v will not be used if pushing data through something like postman as our backend is not built to support it, you would have to push it straight to the db
+//example desks
+
+[
+    {
+        "_id": "628c94a383f000a98aff10d5",
+        "floor": 5,
+        "number": 21,
+        "__v": 0
+    },
+    {
+        "_id": "628c94ab83f000a98aff10d7",
+        "floor": 1,
+        "number": 3,
+        "__v": 0
+    },
+    {
+        "_id": "628c94af83f000a98aff10d9",
+        "floor": 2,
+        "number": 3,
+        "__v": 0
+    }
+]
+
+//example employees
+
+[
+    {
+        "_id": "628c94d283f000a98aff10dc",
+        "name": "Andrzej",
+        "surname": "Miekki",
+        "login": "Anakin",
+        "passwordHash": "98534",
+        "depID": 2,
+        "__v": 0
+    },
+    {
+        "_id": "628c94dd83f000a98aff10de",
+        "name": "Jan",
+        "surname": "Twardy",
+        "login": "janusz1",
+        "passwordHash": "123456",
+        "depID": 1,
+        "__v": 0
+    },
+    {
+        "_id": "628c94e883f000a98aff10e0",
+        "name": "Marcin",
+        "surname": "Pot",
+        "login": "Marci",
+        "passwordHash": "3126267247985",
+        "depID": 1,
+        "__v": 0
+    }
+]
+
+//example reservations - for them to work properly "_id" for the data above MUST be the ones from this file, otherwise id references below will not properly reference employees
+
+[
+    {
+        "_id": "628c952e83f000a98aff10e3",
+        "employeeID": "628c94d283f000a98aff10dc",
+        "deskID": "628c94a383f000a98aff10d5",
+        "reservationStart": "2022-05-10T00:00:00.000Z",
+        "reservationEnd": "2022-05-12T23:59:59.000Z",
+        "__v": 0
+    },
+    {
+        "_id": "628c955983f000a98aff10e5",
+        "employeeID": "628c94dd83f000a98aff10de",
+        "deskID": "628c94ab83f000a98aff10d7",
+        "reservationStart": "2022-05-24T12:30:52.000Z",
+        "reservationEnd": "2022-05-25T12:40:52.000Z",
+        "__v": 0
+    },
+    {
+        "_id": "628c957983f000a98aff10e7",
+        "employeeID": "628c94e883f000a98aff10e0",
+        "deskID": "628c94ab83f000a98aff10d7",
+        "reservationStart": "2022-05-26T13:00:00.000Z",
+        "reservationEnd": "2022-05-25T14:40:00.000Z",
+        "__v": 0
+    }
+]
