@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Admin</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-<header>
-<h1 mat-subheader>Add User</h1>
-</header>
-<hr>
-<div class="formdiv">
+<h1 mat-dialog-title>Edit User</h1>
+<div mat-dialog-content>
   <form [formGroup]="userForm">
     <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Name</mat-label>
@@ -53,8 +43,9 @@
              placeholder="Min. 5 characters long">
     </mat-form-field>
   </form>
+
 </div>
-<div class="button">
-  <button mat-raised-button color="warn" (click)="addUser()" >Save</button>
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close="">Discard</button>
+  <button style="margin-left: 8px" mat-raised-button color="accent" (click)="updateUser()">Save</button>
 </div>
-</html>

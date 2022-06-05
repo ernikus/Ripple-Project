@@ -13,7 +13,7 @@ overflow: auto;
 gap: 10px;
 flex-direction: column;
 top: 0px;
-left: 50%;
+left: 0px;
 bottom: 0px;
 right: 0px;
 Margin: 0;
@@ -37,26 +37,44 @@ header {
   display: flex;
   align-items: center;
 }
+
+table {
+  width: 95%;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  background-color: #000000;
+  color: white;
+  border: 2px solid #FFFFFF;
+}
+ng-container{
+ color: white;
+}
+.datepick{
+  margin-left: 2rem;
+  background-color: #000000;
+  width: 300px;
+}
+
 mat-form-field{
-; 
   width: 95%;
 }
 
 mat-label{
   color: white;
 }
-.input{
+
+th,td,tr{
   color: white;
   font-family: 'NATS';
   font-style: normal;
-  border: 2px solid #FFFFFF;
-  border-radius: 50px;
 }
-.formdiv{
+mat-date-range-input{
   color: white;
   font-family: 'NATS';
   font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  padding-top: 10rem;
+}
+mat-hint{
+  color: white;
+  font-family: 'NATS';
+  font-style: normal;
 }
