@@ -15,7 +15,6 @@ html, body {
     bottom: 0px;
     right: 0px;
     height: 100%;
-    Margin: 0;
     
     background: #000000;
 }
@@ -39,7 +38,6 @@ h1{
     left: 0px;
     bottom: 0px;
     right: 0px;
-    Margin: 0;
     align-items: center;
     justify-content: flex-end;
     
