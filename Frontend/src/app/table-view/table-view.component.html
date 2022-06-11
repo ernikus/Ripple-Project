@@ -1,5 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Table</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+<header>
 <h1 mat-subheader>Office View - Table</h1>
-
+</header>
+<hr>
 <div class="datepick">
   <mat-form-field appearance="outline">
     <mat-label>Enter a date range</mat-label>
@@ -12,7 +21,6 @@
     <mat-date-range-picker #picker></mat-date-range-picker>
   </mat-form-field>
 </div>
-<p>Selected range: {{range.value | json}}</p>
 
 <table mat-table [dataSource]="data" class="mat-elevation-z8">
   <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">

@@ -1,6 +1,14 @@
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Table</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+<header>
 <h1 mat-subheader>My Reservation</h1>
-
+</header>
+<hr>
 <div class="datepicker-box">
   <mat-form-field appearance="fill">
     <mat-label>Enter a date range</mat-label>
@@ -15,8 +23,6 @@
     <mat-error *ngIf="startDateControl.hasError('matStartDateInvalid')">Invalid start date</mat-error>
     <mat-error *ngIf="endDateControl.hasError('matEndDateInvalid')">Invalid end date</mat-error>
   </mat-form-field>
-
-  <p>Selected range: {{range.value | json}}</p>
   <p>Start: {{range.value.start}}</p>
   <p>Middle: {{range.value.middle}}</p>
   <p>End: {{range.value.end}}</p>

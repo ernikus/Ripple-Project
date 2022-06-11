@@ -38,19 +38,27 @@ header {
   align-items: center;
 }
 mat-form-field{
-; 
   width: 95%;
 }
 
 mat-label{
   color: white;
 }
-.input{
+.not-empty-select.mat-selected {
+  color: white !important;
+  font-family: 'NATS';
+  font-style: normal;
+}
+
+:host /deep/ .mat-select-value-text {
+  color: white !important;
+  font-family: 'NATS';
+  font-style: normal;
+}
+input{
   color: white;
   font-family: 'NATS';
   font-style: normal;
-  border: 2px solid #FFFFFF;
-  border-radius: 50px;
 }
 .formdiv{
   color: white;
