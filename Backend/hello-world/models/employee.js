@@ -6,10 +6,6 @@ const employeeSchema = new Schema({
         type: String,
         required: true
     },
-    surname: {
-        type: String,
-        required: true
-    },
     login: {
         type: String,
         required: true
@@ -18,9 +14,21 @@ const employeeSchema = new Schema({
         type: String,
         required: true
     },
+    phone: {
+	type: String,
+	required: true
+    },
+    email: {
+	type: String,
+	required: true
+    },
     depID: {
         type: Number,
         required: true
+    },
+    posID: {
+    	type: Number,
+	required: true
     }
 });
 
