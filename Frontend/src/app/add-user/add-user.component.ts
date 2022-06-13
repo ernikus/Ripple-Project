@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
+import shajs from 'sha.js';
+
 
 @Component({
   selector: 'app-add-user',
@@ -25,14 +27,14 @@ export class AddUserComponent implements OnInit{
       email : ['', Validators.compose([Validators.required, Validators.email]) ],
       password : ['', Validators.required]
     })
-    //posList = [{"name": "Junior Level", "id": 1},  {"name": "Mid Level", "id": 2}, {"name": "Senior Level", "id": 3},  {"name": "Other", "id": 4}]
-    //this.depList = [{"name": "Web Departament", "id": 1}, {"name": "HR", "id": 2}, {"name": "SOC", "id": 3}, {"name": "Other", "id": 4}];
     this.api.getDeps().subscribe((data) => {this.depList = data; console.log(data); });
     this.api.getPositions().subscribe((data) => {this.posList = data; console.log(data); });
   }
 
   addUser(){
     if(this.userForm.valid){
+      const hash = shajs('sha256').update(this.userForm.controls['password'].value).digest('hex')
+      this.userForm.controls['password'].setValue(hash);
       console.log(this.userForm);
       this.api.postUser(this.userForm.value)
       .subscribe({
