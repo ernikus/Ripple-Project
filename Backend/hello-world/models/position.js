@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const positionSchema = new Schema({
-    posID: {
+    id: {
         type: Number,
         required: true
     },

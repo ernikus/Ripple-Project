@@ -1,8 +1,11 @@
 const fs = require('fs');
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const Desk = require('./models/desk');
 const Employee = require('./models/employee');
+const Department = require('./models/department');
+const Position = require('./models/position');
 const Reservation = require('./models/reservation')
 const get_url = require('./utils');
 const { db } = require('./models/desk');
@@ -14,21 +17,49 @@ server_port = 50000;
 
 const app = express();
 app.use(express.json());
+// In order to run frontend and backend on the same host (localhost)
+app.use(cors());
 
 // MOCK DATA
-const employees = JSON.parse(fs.readFileSync(`${__dirname}/employees.json`, 'utf-8'))
+//const employees = JSON.parse(fs.readFileSync(`${__dirname}/employees.json`, 'utf-8'))
+const departments = JSON.parse(fs.readFileSync(`${__dirname}/data/departments.json`, 'utf-8'));
+const positions = JSON.parse(fs.readFileSync(`${__dirname}/data/positions.json`, 'utf-8'));
 
 // connect to database
 var url = get_url(username, password, db_name);
 mongoose.connect(url)
     .then((result) => {
-        Employee.create(employees);
+        //Employee.create(employees);
+        Department.create(departments);
+        Position.create(positions);
         app.listen(server_port);
     })
     .catch((err) => console.log(err));
 
 app.get('/', (request, response) => {
     response.send('Hello!');
+});
+
+app.get('/departments', (request, response) => {
+    Department.find(request.query)
+        .setOptions({ sanitizeFilter: true })
+        .then((result) => {
+            response.send(result);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+});
+
+app.get('/positions', (request, response) => {
+    Position.find(request.query)
+        .setOptions({ sanitizeFilter: true })
+        .then((result) => {
+            response.send(result);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 });
 
 
