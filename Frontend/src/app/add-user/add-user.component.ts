@@ -11,8 +11,8 @@ import { ApiService } from '../services/api.service';
 export class AddUserComponent implements OnInit{
 
   userForm !: FormGroup;
-  depList = ["Web Departament", "HR", "SOC", "Other"];
-  posList = ["Junior Level", "Mid Level", "Senior Level", "Other", "test"]
+  depList = [{"name": "", "id": 0}]
+  posList = [{"name": "", "id": 0}]
 
   constructor(private formBuilder : FormBuilder, private api : ApiService) { }
 
@@ -25,10 +25,15 @@ export class AddUserComponent implements OnInit{
       email : ['', Validators.compose([Validators.required, Validators.email]) ],
       password : ['', Validators.required]
     })
+    //posList = [{"name": "Junior Level", "id": 1},  {"name": "Mid Level", "id": 2}, {"name": "Senior Level", "id": 3},  {"name": "Other", "id": 4}]
+    //this.depList = [{"name": "Web Departament", "id": 1}, {"name": "HR", "id": 2}, {"name": "SOC", "id": 3}, {"name": "Other", "id": 4}];
+    this.api.getDeps().subscribe((data) => {this.depList = data; console.log(data); });
+    this.api.getPositions().subscribe((data) => {this.posList = data; console.log(data); });
   }
 
   addUser(){
     if(this.userForm.valid){
+      console.log(this.userForm);
       this.api.postUser(this.userForm.value)
       .subscribe({
         next:(res)=>{

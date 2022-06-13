@@ -77,12 +77,14 @@ app.get('/employees', (request, response) => {
 //Adding an employee
 app.post('/add-employee', (request, response) => {
     const newEmployee = new Employee({
+        depID: request.body.departament,
+	email: request.body.email,
         name: request.body.name,
-        surname: request.body.surname,
-        login: request.body.login,
+        login: request.body.email,
         //TODO: Hashing and security in general
-        passwordHash: request.body.passwordHash,
-        depID: request.body.depID
+        passwordHash: request.body.password,
+	phone: request.body.phone,
+        posID: request.body.position,
     });
 
     newEmployee.save()
