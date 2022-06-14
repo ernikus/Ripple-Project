@@ -11,8 +11,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class EditUserDialogComponent implements OnInit {
 
   userForm !: FormGroup;
-  depList = ["Web Departament", "HR", "SOC", "Other"];
-  posList = ["Junior Level", "Mid Level", "Senior Level", "Other", "test"];
+  depList = [{"name": "", "id": 0}]
+  posList = [{"name": "", "id": 0}]
 
   constructor(private formBuilder : FormBuilder, private api : ApiService,
     @Inject(MAT_DIALOG_DATA) public userEdit: any,
@@ -24,9 +24,11 @@ export class EditUserDialogComponent implements OnInit {
       departament : ['', Validators.required],
       position : ['', Validators.required],
       phone : ['', Validators.required],
-      email : ['', Validators.required],
+      email : ['', Validators.compose([Validators.required, Validators.email])],
       password : ['', Validators.required]
     })
+    this.api.getDeps().subscribe((data) => {this.depList = data; console.log(data); });
+    this.api.getPositions().subscribe((data) => {this.posList = data; console.log(data); });
 
     if(this.userEdit){
       this.userForm.controls['name'].setValue(this.userEdit.name);
@@ -38,7 +40,7 @@ export class EditUserDialogComponent implements OnInit {
     }
   }
   updateUser(){
-    this.api.putUser(this.userForm.value, this.userEdit.id)
+    this.api.putUser(this.userForm.value, this.userEdit._id)
     .subscribe({
       next:(res)=>{
         alert("User data updated");
