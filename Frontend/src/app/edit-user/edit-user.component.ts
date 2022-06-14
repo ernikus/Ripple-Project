@@ -15,6 +15,8 @@ export class EditUserComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'departament', 'position', 'edit'];
   dataSource!: MatTableDataSource<any>;
+  department: Map<number, string> = new Map<number,string>();
+  position: Map<number, string> = new Map<number, string>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -22,13 +24,38 @@ export class EditUserComponent implements OnInit {
   constructor(private api : ApiService, private dialog : MatDialog) { }
 
   ngOnInit(): void {
+    this.getDepartments();
+    this.getPositions();
     this.getUsers();
   }
-
+  
+  getDepartments(){
+    this.api.getDeps().subscribe((data) => {
+       data.forEach((element: any) => {
+         this.department.set(element["id"], element["name"]);
+       })
+    });
+  }
+  
+  getPositions(){
+    this.api.getPositions().subscribe((data) => {
+       data.forEach((element: any) => {
+         this.position.set(element["id"], element["name"]);
+       })
+    });
+  }
+  
   getUsers(){
-    this.api.getUser()
+    this.api.getAllUsers()
     .subscribe({
       next:(res)=>{
+        res = res.filter((item: any) => item["isDeleted"] !== true);
+        res.forEach((element: any) => {
+           element["departament"] = this.department.get(element["depID"]);
+        });
+        res.forEach((element: any) => {
+           element["position"] = this.position.get(element["posID"]);
+        });
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -38,6 +65,7 @@ export class EditUserComponent implements OnInit {
       }
     })
   }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -46,12 +74,14 @@ export class EditUserComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  
   editUser(row : any){
     this.dialog.open(EditUserDialogComponent, {
       width:'30%',
       data: row
     });
   }
+  
   deleteUser(id : number){
     this.api.delUser(id)
     .subscribe({

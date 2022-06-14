@@ -1,0 +1,42 @@
+[
+ {
+  "name": "Eustachy",
+  "login": "eustachy@gmail.com",
+  "passwordHash": "c054a0ceeefb6d010bfce11818be22aaeef257600d132b24d6559220b4cebf54",
+  "phone": "100200300",
+  "email": "eustachy@gmail.com",
+  "depID": 1,
+  "posID": 1,
+  "isDeleted": false
+ },
+ {
+  "name": "Arnold",
+  "login": "arnold@gmail.com",
+  "passwordHash": "c054a0ceeefb6d010bfce11818be22aaeef257600d132b24d6559220b4cebf54",
+  "phone": "200300400",
+  "email": "arnold@gmail.com",
+  "depID": 2,
+  "posID": 1,
+  "isDeleted": false
+ },
+ {
+  "name": "Tyberiusz",
+  "login": "tyberiusz@gmail.com",
+  "passwordHash": "c054a0ceeefb6d010bfce11818be22aaeef257600d132b24d6559220b4cebf54",
+  "phone": "300400500",
+  "email": "tyberiusz@gmail.com",
+  "depID": 1,
+  "posID": 2,
+  "isDeleted": false
+ },
+ {
+  "name": "Janina",
+  "login": "janina@gmail.com",
+  "passwordHash": "c054a0ceeefb6d010bfce11818be22aaeef257600d132b24d6559220b4cebf54",
+  "phone": "400500600",
+  "email": "janina@gmail.com",
+  "depID": 2,
+  "posID": 2,
+  "isDeleted": false
+ }
+]

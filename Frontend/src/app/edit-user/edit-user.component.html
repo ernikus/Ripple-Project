@@ -37,7 +37,7 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit User </th>
         <td mat-cell *matCellDef="let row">
           <button mat-icon-button color="primary" (click)="editUser(row)"><mat-icon>edit</mat-icon></button>
-          <button mat-icon-button color="warn" (click)="deleteUser(row.id)"><mat-icon>delete</mat-icon></button>
+          <button mat-icon-button color="warn" (click)="deleteUser(row._id)"><mat-icon>delete</mat-icon></button>
         </td>
       </ng-container>
 
