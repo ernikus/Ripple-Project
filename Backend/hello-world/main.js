@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(cors());
 
 // MOCK DATA
-//const employees = JSON.parse(fs.readFileSync(`${__dirname}/employees.json`, 'utf-8'))
+const employees = JSON.parse(fs.readFileSync(`${__dirname}/data/employees.json`, 'utf-8'))
 const departments = JSON.parse(fs.readFileSync(`${__dirname}/data/departments.json`, 'utf-8'));
 const positions = JSON.parse(fs.readFileSync(`${__dirname}/data/positions.json`, 'utf-8'));
 
@@ -29,7 +29,7 @@ const positions = JSON.parse(fs.readFileSync(`${__dirname}/data/positions.json`,
 var url = get_url(username, password, db_name);
 mongoose.connect(url)
     .then((result) => {
-        //Employee.create(employees);
+        Employee.create(employees);
         Department.create(departments);
         Position.create(positions);
         app.listen(server_port);
