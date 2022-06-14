@@ -6,7 +6,8 @@
   "phone": "100200300",
   "email": "eustachy@gmail.com",
   "depID": 1,
-  "posID": 1
+  "posID": 1,
+  "isDeleted": false
  },
  {
   "name": "Arnold",
@@ -15,7 +16,8 @@
   "phone": "200300400",
   "email": "arnold@gmail.com",
   "depID": 2,
-  "posID": 1
+  "posID": 1,
+  "isDeleted": false
  },
  {
   "name": "Tyberiusz",
@@ -24,7 +26,8 @@
   "phone": "300400500",
   "email": "tyberiusz@gmail.com",
   "depID": 1,
-  "posID": 2
+  "posID": 2,
+  "isDeleted": false
  },
  {
   "name": "Janina",
@@ -33,6 +36,7 @@
   "phone": "400500600",
   "email": "janina@gmail.com",
   "depID": 2,
-  "posID": 2
+  "posID": 2,
+  "isDeleted": false
  }
 ]

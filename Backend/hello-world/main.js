@@ -110,6 +110,16 @@ app.put('/edit-employee/:id', (request, response) => {
     });
 });
 
+app.delete('/delete-employee/:id', (request, response) => {
+    Employee.findByIdAndUpdate(request.params.id, {"isDeleted": true})
+    .then((result) => {
+        response.send(result);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+});
+
 app.get('/reservations', (request, response) => {
     Reservation.find(request.query)
         .setOptions({ sanitizeFilter: true })

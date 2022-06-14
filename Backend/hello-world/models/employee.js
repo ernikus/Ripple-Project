@@ -29,6 +29,10 @@ const employeeSchema = new Schema({
     posID: {
     	type: Number,
 	required: true
+    },
+    isDeleted: {
+        type: Boolean,
+        default: false
     }
 });
 
