@@ -9,7 +9,6 @@ export class ApiService {
   constructor(private http : HttpClient) { }
 
   postUser(data : any){
-    console.log(data);
     return this.http.post<any>("http://localhost:50000/add-employee/", data);
   }
   getAllUsers(){
@@ -19,7 +18,7 @@ export class ApiService {
     return this.http.put<any>("http://localhost:50000/edit-employee/"+id, data)
   }
   delUser(id : number){
-    return this.http.delete<any>("http://localhost:3000/userList/"+id)
+    return this.http.delete<any>("http://localhost:50000/delete-employee/"+id)
   }
   getDeps(){
     return this.http.get<any>("http://localhost:50000/departments");

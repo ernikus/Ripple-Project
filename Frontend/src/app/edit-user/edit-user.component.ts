@@ -49,6 +49,7 @@ export class EditUserComponent implements OnInit {
     this.api.getAllUsers()
     .subscribe({
       next:(res)=>{
+        res = res.filter((item: any) => item["isDeleted"] !== true);
         res.forEach((element: any) => {
            element["departament"] = this.department.get(element["depID"]);
         });
