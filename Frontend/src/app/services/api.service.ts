@@ -12,8 +12,8 @@ export class ApiService {
     console.log(data);
     return this.http.post<any>("http://localhost:50000/add-employee/", data);
   }
-  getUser(){
-    return this.http.get<any>("http://localhost:3000/userList/")
+  getAllUsers(){
+    return this.http.get<any>("http://localhost:50000/employees/")
   }
   putUser(data : any, id : number){
     return this.http.put<any>("http://localhost:3000/userList/"+id, data)
