@@ -188,43 +188,61 @@ app.get('/report-day-floor', (request, response) => {
     const searchedFloor = request.body.searchedFloor
     const searchedDay = request.body.searchedDay
     var foundDeskIDs = []
-    Reservation.find( { $and: [ { reservationStart: { $lt: searchedDay } }, { reservationEnd: { $gt: searchedDay } } ]  }, { deskID: 1, _id: 0 } )
+    Reservation.find({ $and: [{ reservationStart: { $lt: searchedDay } }, { reservationEnd: { $gt: searchedDay } }] }, { deskID: 1, _id: 0 })
         .then((result) => {
             for (var i = 0; i < result.length; i++) {
                 foundDeskIDs.push(result[i].deskID)
             }
-            Desk.find( { $and: [ { _id: { $in: foundDeskIDs } }, { floor: searchedFloor } ] } )
-            .then((result2) => {
-                response.send(result2);
-            })
-            .catch((err2) => {
-                console.log(err2);
-            });
+            Desk.count({ floor: searchedFloor })
+                .then((allDesksOnFloor) => {
+                    Desk.count({ $and: [{ _id: { $in: foundDeskIDs } }, { floor: searchedFloor }] })
+                        .then((matchingDesks) => {
+                            //Sends back percentage of used desks, if there are no desks on floor it returns -1
+                            if (allDesksOnFloor != 0) { deskPercentageTaken = matchingDesks / allDesksOnFloor * 100 }
+                            else { deskPercentageTaken = -1; }
+                            response.send({ deskPercentageTaken });
+                        })
+                        .catch((err3) => {
+                            console.log(err3);
+                        });
+                })
+                .catch((err2) => {
+                    console.log(err2);
+                });
         })
         .catch((err) => {
             console.log(err);
-        });      
+        });
 });
 
 app.get('/report-day', (request, response) => {
     const searchedDay = request.body.searchedDay
     var foundDeskIDs = []
-    Reservation.find( { $and: [ { reservationStart: { $lt: searchedDay } }, { reservationEnd: { $gt: searchedDay } } ]  }, { deskID: 1, _id: 0 } )
+    Reservation.find({ $and: [{ reservationStart: { $lt: searchedDay } }, { reservationEnd: { $gt: searchedDay } }] }, { deskID: 1, _id: 0 })
         .then((result) => {
             for (var i = 0; i < result.length; i++) {
                 foundDeskIDs.push(result[i].deskID)
             }
-            Desk.find( { _id: { $in: foundDeskIDs } } )
-            .then((result2) => {
-                response.send(result2);
-            })
-            .catch((err2) => {
-                console.log(err2);
-            });
+            Desk.count({})
+                .then((allDesks) => {
+                    Desk.count({ _id: { $in: foundDeskIDs } })
+                        .then((matchingDesks) => {
+                            //Sends back percentage of used desks, if there are no desks it returns -1
+                            if (allDesks != 0) { deskPercentageTaken = matchingDesks / allDesks * 100 }
+                            else deskPercentageTaken = -1;
+                            response.send({ deskPercentageTaken });
+                        })
+                        .catch((err3) => {
+                            console.log(err3);
+                        });
+                })
+                .catch((err2) => {
+                    console.log(err2);
+                });
         })
         .catch((err) => {
             console.log(err);
-        });      
+        });
 });
 
 app.use((request, response) => {
